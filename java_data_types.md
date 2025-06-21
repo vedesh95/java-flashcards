@@ -4,27 +4,62 @@
 
 ## 🌟 Summary / Overview
 
-Java provides a set of built-in data types known as **primitive types**, along with reference types (objects). Data types define the size, behavior, and allowed operations for variables.
+Java provides two broad categories of data types: **primitive types** and **reference types**.
 
 ### Primitive Data Types
-| Type    | Size (bits) | Range / Notes                        |
-|---------|-------------|---------------------------------------|
-| byte    | 8           | -128 to 127                          |
-| short   | 16          | -32,768 to 32,767                    |
-| int     | 32          | -2^31 to 2^31-1                      |
-| long    | 64          | -2^63 to 2^63-1                      |
-| float   | 32          | ~6-7 decimal digits precision         |
-| double  | 64          | ~15 decimal digits precision         |
-| char    | 16          | Unicode characters (0 to 65,535)     |
-| boolean | JVM dependent | true / false                        |
 
-### Reference Types
-Reference types store references to objects (instances of classes, arrays, etc.) rather than actual data.
+| Type    | Size (bits)   | Range / Notes                    |
+| ------- | ------------- | -------------------------------- |
+| byte    | 8             | -128 to 127                      |
+| short   | 16            | -32,768 to 32,767                |
+| int     | 32            | -2^31 to 2^31-1                  |
+| long    | 64            | -2^63 to 2^63-1                  |
+| float   | 32            | \~6-7 decimal digits precision   |
+| double  | 64            | \~15 decimal digits precision    |
+| char    | 16            | Unicode characters (0 to 65,535) |
+| boolean | JVM dependent | true / false                     |
 
-Other notes:
-- Default values for primitives: 0, 0.0, '\u0000', false
-- Default value for references: null
-- Java is **strongly typed**; variables must be declared with a type.
+### Reference Data Types (Detailed)
+
+Reference types store **memory addresses (references)** to actual objects, not the object’s data directly. The types that fall under reference types include:
+
+- **Classes**: Any instance of a class (e.g., `String`, `Scanner`, `ArrayList`).
+- **Interfaces**: Variables declared as an interface type can reference objects of classes implementing that interface.
+- **Arrays**: Arrays of primitive or reference types are themselves objects.
+- **Enums**: Special reference types that define a set of constants.
+
+#### Key points about reference types:
+
+- The value stored in the variable is the address pointing to the object in memory.
+- Access to the actual data is done through this reference.
+- When you assign one reference variable to another, both point to the same object.
+- The default value for reference types is `null`.
+- `null` means the reference does not point to any object.
+
+### Autoboxing and Unboxing
+
+- **Autoboxing**: Automatic conversion of a primitive type to its corresponding wrapper class (e.g., `int` → `Integer`).
+- **Unboxing**: Automatic conversion of a wrapper class object back to its corresponding primitive type.
+- These conversions happen implicitly, for example:
+
+```java
+Integer obj = 5;  // autoboxing of int 5 to Integer
+int num = obj;    // unboxing Integer to int
+```
+
+### String Pool
+
+- The **String pool** (or intern pool) is a special memory region where Java stores string literals.
+- If two string literals have the same content, they share the same object in the pool.
+- Example:
+
+```java
+String a = "hello";
+String b = "hello";
+System.out.println(a == b); // true, same pool object
+```
+
+- Using `new String("hello")` creates a new object outside the pool.
 
 ---
 
@@ -32,17 +67,23 @@ Other notes:
 
 1️⃣ What are Java's primitive data types? List them.
 
-2️⃣ What is the size and range of `int` in Java?
+2️⃣ What types fall under reference data types?
 
-3️⃣ What is the default value of a `boolean` field in Java?
+3️⃣ What does a reference variable store in Java?
 
-4️⃣ How many bits does a `char` occupy in Java, and what does it represent?
+4️⃣ What is the default value of a reference type?
 
-5️⃣ What is the difference between primitive types and reference types?
+5️⃣ How are arrays treated in Java in terms of data type?
 
-6️⃣ Why is Java called a strongly typed language?
+6️⃣ What happens when two reference variables point to the same object?
 
-7️⃣ What is the default value of an object reference?
+7️⃣ What is `null` in the context of reference types?
+
+8️⃣ What is autoboxing and unboxing in Java?
+
+9️⃣ What is the String pool and how does it work?
+
+10️⃣ How does using `new String()` differ from using string literals?
 
 ---
 
@@ -50,15 +91,21 @@ Other notes:
 
 1️⃣ Java's primitive data types: byte, short, int, long, float, double, char, boolean.
 
-2️⃣ `int` is 32 bits, range: -2^31 to 2^31-1.
+2️⃣ Reference data types include classes, interfaces, arrays, and enums.
 
-3️⃣ `boolean` default: false.
+3️⃣ A reference variable stores the memory address of the object it refers to.
 
-4️⃣ `char` is 16 bits, represents Unicode characters (0 to 65,535).
+4️⃣ The default value of a reference type is `null`.
 
-5️⃣ Primitive types store actual values; reference types store memory addresses of objects.
+5️⃣ Arrays are treated as objects and are reference types in Java.
 
-6️⃣ Java requires variables to be declared with a type and enforces type checking at compile time.
+6️⃣ If two reference variables point to the same object, changes made via one reference are visible through the other.
 
-7️⃣ Default value of an object reference is `null`.
+7️⃣ `null` indicates that a reference variable does not point to any object in memory.
+
+8️⃣ Autoboxing is the automatic conversion of a primitive type to its wrapper class. Unboxing is the reverse: wrapper to primitive.
+
+9️⃣ The String pool is a memory region that stores string literals so identical literals share the same object, saving memory.
+
+🔟 Using `new String()` creates a new string object on the heap, not the pool, even if the content is identical to an existing string literal.
 
