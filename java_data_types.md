@@ -19,6 +19,8 @@ Java provides two broad categories of data types: **primitive types** and **refe
 | char    | 16            | Unicode characters (0 to 65,535) |
 | boolean | JVM dependent | true / false                     |
 
+![image](https://github.com/user-attachments/assets/2b0f0ebf-cad5-49f7-89ad-724f03524699)
+
 ### Reference Data Types (Detailed)
 
 Reference types store **memory addresses (references)** to actual objects, not the object’s data directly. The types that fall under reference types include:
